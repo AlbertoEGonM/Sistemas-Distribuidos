@@ -1,0 +1,26 @@
+Ejercicios de programación: 
+1.- El programa consiste en generar n “palabras” de tres letras mayúsculas aleatorias e irlas concatenando en una cadena gigante, manteniendo un espacio en blanco de separación entre cada palabra. Posteriormente debe hacerse la búsqueda de la subcadena “IPN” en la cadena gigante y contabilizar el número de apariciones, así como la posición dentro de la cadenota donde apareció. 
+
+El programa debe recibir el número n como parámetro en la línea de comandos de manera que debe incluir al inicio algo como: 
+
+n = Integer.parseInt(args[0]); 
+
+Por cuestiones de desempeño la cadena deberá almacenarse en un arreglo de tipo byte o char: 
+
+char[] cadenota = new char[n*4];   
+
+¿De acuerdo con la teoría de la probabilidad cuantas palabras deberían generarse para que se dé una ocurrencia? ¿Y para diez ocurrencias?  
+
+2.- Elabore un programa similar al anterior, pero utilizando la clase StringBuilder y el método append para almacenar la cadena grande, así como el método indexOf para buscar la subcadena “IPN”. Posteriormente y haciendo uso del comando time de UNIX compare los tiempos de ejecución del ejercicio anterior con el actual haciendo las búsquedas en una cadena suficientemente grande (que ocurran aproximadamente 10 apariciones de "IPN").  
+
+3.- Elabore el mismo programa en su lenguaje de programación favorito. 
+
+4.- Compare los tiempos de ejecución de los tres programas resumiéndolo en una tabla e indicando cual tuvo el mejor desempeño y cual el peor. 
+
+ 
+
+Importante: 
+
+Ejecutar los tres códigos en la misma LAP para que las mediciones de tiempo sean válidas, y con un número de tokens para que ocurran aproximadamente 10 apariciones de "IPN".  
+Al hacer las mediciones de tiempo su código no debe imprimir más que el número de ocurrencias.  
+Pregúntale a IA “¿Porqué al imprimir valores en mi programa Java y ejecutarlo en la consola tarda más que cuando no hago impresiones?” 
