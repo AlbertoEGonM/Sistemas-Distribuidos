@@ -1,0 +1,34 @@
+Ejercicio 1
+
+Agregue otro constructor en Rectangulo.java que reciba como parámetros dos
+objetos Coordenada. El primer parámetro debe ser la coordenada superior
+izquierda de un rectángulo y el segundo parámetro debe ser su coordenada
+inferior derecha. Pruebe su constructor en PruebaRectangulo.java enviándole las
+mismas coordenadas que las enviadas en el constructor original para verificar que
+da la misma área. Envíe a teams el código nuevo que se haya agregado, así como
+la captura de pantalla de su programa ejecutándose correctamente.
+
+Ejercicio 2
+Para el nuevo constructor del ejercicio anterior si existe un error en la posición de
+las dos coordenadas (la primera no se encuentra arriba y a la izquierda de la
+segunda) no deberá ser posible la creación del objeto Rectangulo. Para lo cual
+será necesario incorporar un bloque try-catch.
+
+Ejercicio 3
+Basándose en el código del ejercicio 1, elabore la clase PoligonoIrreg la cual
+representa un polígono no convexo e irregular en los cuatro cuadrantes del plano
+cartesiano, donde cada vértice del polígono es un objeto Coordenada.
+El conjunto de objetos Coordenada se debe almacenar en un arreglo estático
+dentro de la clase PoligonoIrreg como sigue:
+private Coordenada[]vertices;
+El constructor debe recibir el número de vértices que tendrá el polígono y cada
+vértice se inicializará con valores decimales aleatorios de x y y devueltos por el
+método Math.random() .
+Se debe disponer del método modificaVertice para modificar el vértice n-esimo
+del polígono, por lo que debe recibir como parámetros un entero y un objeto
+Coordenada, asimismo debe sobrescribir el método toString( ) para imprimir
+el conjunto de vértices que componen al polígono.
+Pruebe su clase PoligonoIrreg creando un objeto de siete vértices, imprímalo,
+posteriormente mande llamar al método modificaVertice para modificar uno
+de los elementos y vuelva a imprimir el objeto PoligonoIrreg para verificar el
+cambio.
