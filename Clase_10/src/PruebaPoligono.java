@@ -22,7 +22,7 @@ public class PruebaPoligono {
         //Imprimir la maginutd de los vertices sin ordenar para verificar que se han generado correctamente
         System.out.println("--- Magnitud de los Vértices Antes de Ordenar ---");
         for (coordenada vertice : poligono.getVerticesList()) {
-            System.out.println("Magnitud del vértice: " + vertice.magnitud());
+            System.out.println(vertice + " | Magnitud: " + vertice.magnitud());
         }
         // 5. Ordenar los vértices del polígono irregular de menor a mayor basado en su magnitud (distancia al origen)
         poligono.ordenaVertices();
@@ -30,7 +30,7 @@ public class PruebaPoligono {
         // 6. Imprimir la magnitud de los vértices ordenados para verificar que se han ordenado correctamente
         System.out.println("--- Polígono Irregular Después de Ordenar los Vértices por Magnitud ---");
         for (coordenada vertice : poligono.getVerticesList()) {
-            System.out.println("Magnitud del vértice: " + vertice.magnitud());
+            System.out.println(vertice + " | Magnitud: " + vertice.magnitud());
         }
         
 
