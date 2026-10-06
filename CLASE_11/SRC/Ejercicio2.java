@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.ListIterator;
  //Actividad Clase 11 - Programadores y On-line
+ 
 public class Ejercicio2 {
     //El segundo argumento de Ejercicio1 indica el sexo que se ELIMINA.
     public static void main(String[] args) {

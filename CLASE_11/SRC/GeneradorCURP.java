@@ -10,6 +10,7 @@
 
 //static: un miembro static pertenece a la clase. main debe ser static para que la JVM lo invoque sin crear un objeto. generar() es static porque no necesita estado de instancia. Las constantes static final se comparten entre llamadas.
 
+
 //Ejercicio1: el sexo ocupa el indice 10 (undecimo caracter). Se obtiene un Iterator, se avanza con next() y se elimina el ultimo elemento leido con remove().
 //Ejercicio2: se recorren los prefijos con compareTo(); si el nuevo va antes, previous() devuelve el cursor a la posicion de insercion y add() lo inserta. Si no se encuentra uno mayor, add() agrega al final. Los prefijos iguales conservan su orden de llegada.
 import java.util.concurrent.ThreadLocalRandom;
