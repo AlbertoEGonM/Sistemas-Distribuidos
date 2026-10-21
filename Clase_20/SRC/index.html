@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NGINX - Enviar tarea</title>
+    <link rel="stylesheet" href="/estilos.css">
+    <script src="/app.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Enviar tarea al servidor Java</h1>
+        <p>NGINX recibe la solicitud y la envía al endpoint /task.</p>
+
+        <form id="formulario">
+            <label for="mensaje">Contenido de la tarea</label>
+            <textarea id="mensaje" rows="5" required>Hola desde el navegador</textarea>
+            <button id="enviar" type="submit">Enviar tarea</button>
+        </form>
+
+        <h2>Respuesta del servidor</h2>
+        <pre id="resultado" aria-live="polite">Todavía no se han enviado solicitudes.</pre>
+    </main>
+</body>
+</html>
