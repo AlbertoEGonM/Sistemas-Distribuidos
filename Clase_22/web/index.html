@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Búsqueda distribuida SHA-256</title>
+<style>
+body{font:17px system-ui;background:#eef2f6;color:#152b40;max-width:900px;margin:60px auto;padding:24px}main{background:white;padding:32px;border-radius:16px;box-shadow:0 8px 30px #152b4015}h1{margin-top:0}label{display:block;font-weight:600;margin-bottom:10px}input{box-sizing:border-box;width:100%;padding:14px;font:16px monospace;border:1px solid #9baaba;border-radius:6px}button{background:#1557a0;color:white;border:0;padding:13px 22px;border-radius:6px;font:inherit;margin-top:16px;cursor:pointer}button:disabled{opacity:.6}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf3fa;padding:18px;border-radius:8px;font-size:14px}small{display:block;margin:16px 0;color:#4b6075}
+</style>
+<main>
+<h1>Búsqueda distribuida SHA-256</h1>
+<p>Busca una palabra de cinco letras minúsculas (a–z) mediante dos servidores trabajadores.</p>
+<form id="form">
+<label for="hash">Hash SHA-256 de la palabra</label>
+<input id="hash" name="hash" required pattern="[0-9a-fA-F]{64}" minlength="64" maxlength="64" placeholder="64 caracteres hexadecimales" autocomplete="off">
+<button id="search">Buscar contraseña</button>
+<button type="button" id="example">Cargar ejemplo: abaco</button>
+</form>
+<small>El tiempo informado por el servidor incluye el reparto y la espera de las tareas ya enviadas.</small>
+<pre id="result" role="status" aria-live="polite">Esperando una consulta.</pre>
+</main>
+<script>
+const form=document.querySelector('#form'), hash=document.querySelector('#hash'), result=document.querySelector('#result'), button=document.querySelector('#search');
+document.querySelector('#example').onclick=async()=>{
+ const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('abaco'));
+ hash.value=Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
+};
+form.onsubmit=async event=>{
+ event.preventDefault(); button.disabled=true; result.textContent='Procesando la búsqueda en los workers…';
+ try{
+  const response=await fetch('/dispatcher',{method:'POST',headers:{'Content-Type':'text/plain; charset=UTF-8'},body:hash.value.trim()});
+  const text=await response.text();
+  result.textContent=response.ok?text:`Error HTTP ${response.status}: ${text}`;
+ }catch(error){result.textContent='No se pudo contactar al servidor: '+error.message;}
+ finally{button.disabled=false;}
+};
+</script>
+</html>
