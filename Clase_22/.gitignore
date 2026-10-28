@@ -1,4 +1,0 @@
-classes/*
-!classes/.gitkeep
-nginx/runtime/
-evidencias/*.log
